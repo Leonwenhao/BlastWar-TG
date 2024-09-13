@@ -14,8 +14,14 @@
             <p>Chips: <span id="chip-count">1000</span></p>
         </div>
         <div id="game-area">
-            <div id="player-card" class="card"></div>
-            <div id="opponent-card" class="card"></div>
+            <div class="card-container">
+                <div class="card-label">Your Card</div>
+                <div id="player-card" class="card"><img src="" alt="Player's card"></div>
+            </div>
+            <div class="card-container">
+                <div class="card-label">Opponent's Card</div>
+                <div id="opponent-card" class="card"><img src="" alt="Opponent's card"></div>
+            </div>
         </div>
         <div id="controls">
             <input type="number" id="bet-input" min="1" placeholder="Place your bet">
@@ -23,6 +29,15 @@
         </div>
         <div id="message"></div>
     </div>
+
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2>Game Over!</h2>
+            <p>You've run out of chips.</p>
+            <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
