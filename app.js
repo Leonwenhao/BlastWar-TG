@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tg = window.Telegram.WebApp;
     let chips = 1000;
     let currentBet = 0;
-    const cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    const cardRanks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
     const chipCountEl = document.getElementById('chip-count');
     const playerCardEl = document.getElementById('player-card').querySelector('img');
@@ -34,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drawCard() {
-        const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
         const suits = ['H', 'D', 'C', 'S'];
         
         // Generate random index for rank
-        const randomRankIndex = crypto.getRandomValues(new Uint32Array(1))[0] % ranks.length;
-        const randomRank = ranks[randomRankIndex];
+        const randomRankIndex = crypto.getRandomValues(new Uint32Array(1))[0] % cardRanks.length;
+        const randomRank = cardRanks[randomRankIndex];
         
         // Generate random index for suit
         const randomSuitIndex = crypto.getRandomValues(new Uint32Array(1))[0] % suits.length;
@@ -49,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function compareCards(card1, card2) {
-        return cards.indexOf(card1) - cards.indexOf(card2);
+        const rank1 = card1.slice(0, -1);  // Remove the last character (suit)
+        const rank2 = card2.slice(0, -1);
+        return cardRanks.indexOf(rank1) - cardRanks.indexOf(rank2);
     }
 
     function displayCard(element, card) {
