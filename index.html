@@ -23,8 +23,16 @@
                 <div id="opponent-card" class="card"><img src="" alt="Opponent's card"></div>
             </div>
         </div>
+        <div id="betting-area">
+            <p>Current Bet: <span id="current-bet">0</span></p>
+            <div id="bet-buttons">
+                <button class="bet-button" data-value="25">25</button>
+                <button class="bet-button" data-value="50">50</button>
+                <button class="bet-button" data-value="100">100</button>
+            </div>
+            <button id="clear-bet">Clear Bet</button>
+        </div>
         <div id="controls">
-            <input type="number" id="bet-input" min="1" placeholder="Place your bet">
             <button id="play-button">Play</button>
         </div>
         <div id="message"></div>
@@ -35,6 +43,15 @@
             <h2>Game Over!</h2>
             <p>You've run out of chips.</p>
             <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+
+    <div id="war-decision-modal" class="modal">
+        <div class="modal-content">
+            <h2>It's a Tie!</h2>
+            <p>You can go to war or surrender half your bet.</p>
+            <button id="go-to-war-button">Go to War</button>
+            <button id="surrender-button">Surrender</button>
         </div>
     </div>
 
