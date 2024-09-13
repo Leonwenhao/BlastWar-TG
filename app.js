@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drawCard() {
-        return cards[Math.floor(Crypto.random() * cards.length)];
+        return cards[Math.floor(Math.random() * cards.length)];
     }
 
     function compareCards(card1, card2) {
