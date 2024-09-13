@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drawCard() {
-        return cards[Math.floor(Math.random() * cards.length)];
+        const randomIndex = crypto.getRandomValues(new Uint32Array(1))[0] % cards.length;
+        return cards[randomIndex];
     }
 
     function compareCards(card1, card2) {
