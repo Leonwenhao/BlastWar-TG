@@ -34,8 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drawCard() {
-        const randomIndex = crypto.getRandomValues(new Uint32Array(1))[0] % cards.length;
-        return cards[randomIndex];
+        const ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+        const suits = ['H', 'D', 'C', 'S'];
+        
+        // Generate random index for rank
+        const randomRankIndex = crypto.getRandomValues(new Uint32Array(1))[0] % ranks.length;
+        const randomRank = ranks[randomRankIndex];
+        
+        // Generate random index for suit
+        const randomSuitIndex = crypto.getRandomValues(new Uint32Array(1))[0] % suits.length;
+        const randomSuit = suits[randomSuitIndex];
+        
+        return `${randomRank}${randomSuit}`;
     }
 
     function compareCards(card1, card2) {
