@@ -35,15 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function drawCard() {
         const suits = ['H', 'D', 'C', 'S'];
-        
-        // Generate random index for rank
-        const randomRankIndex = crypto.getRandomValues(new Uint32Array(1))[0] % cardRanks.length;
+        const rankArray = new Uint32Array(1);
+        const suitArray = new Uint32Array(1);
+
+        crypto.getRandomValues(rankArray);
+        crypto.getRandomValues(suitArray);
+
+        const randomRankIndex = rankArray[0] % cardRanks.length;
         const randomRank = cardRanks[randomRankIndex];
-        
-        // Generate random index for suit
-        const randomSuitIndex = crypto.getRandomValues(new Uint32Array(1))[0] % suits.length;
+
+        const randomSuitIndex = suitArray[0] % suits.length;
         const randomSuit = suits[randomSuitIndex];
-        
+
         return `${randomRank}${randomSuit}`;
     }
 
