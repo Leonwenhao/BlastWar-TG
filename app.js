@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         element.src = `images/${card}.png`;
         element.alt = card;
     }
-
+    
     function showWarDecisionModal() {
         warDecisionModal.style.display = 'block';
     }
