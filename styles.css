@@ -1,40 +1,161 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a2e;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
     padding: 20px;
-    text-align: center;
 }
 
 #game-container {
-    max-width: 600px;
-    margin: 0 auto;
+    background-color: #16213e;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #e94560;
+    margin-bottom: 30px;
+}
+
+/* Player Info */
+#player-info {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Game Area */
+#game-area {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    text-align: center;
+}
+
+.card-label {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #e94560;
 }
 
 .card {
-    width: 100px;
-    height: 150px;
-    background-color: #ffffff;
-    display: inline-block;
-    margin: 10px;
-    border-radius: 10px;
-    font-size: 24px;
-    line-height: 150px;
-    color: #000000;
+    width: 120px;
+    height: 168px;
+    transition: transform 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card Flip Animation */
+@keyframes flipIn {
+    from {
+        transform: perspective(400px) rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(400px) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: flipIn 0.6s ease-out;
+}
+
+/* Controls */
 #controls {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-input, button {
-    font-size: 18px;
+#bet-input {
     padding: 10px;
-    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    background-color: #0f3460;
+    color: white;
+    border: 2px solid #e94560;
 }
 
-#message {
-    margin-top: 20px;
+#play-button {
+    padding: 10px 20px;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(233,69,96,0.2);
+}
+
+#play-button:hover {
+    background-color: #ba2d48;
+}
+
+#play-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(233,69,96,0.2);
+}
+
+/* Message Area */
+#message {
+    text-align: center;
+    font-size: 1.1em;
+    min-height: 50px;
+}
+
+/* Game Over Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #16213e;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #e94560;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
